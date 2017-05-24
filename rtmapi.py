@@ -1,18 +1,13 @@
 import os
+import random
+import sys
 from slackclient import SlackClient
+#Imports messages from another python file
+from messages import *
 import time
 
 slack_token = os.environ["SLACK_API_TOKEN"]
 sc = SlackClient(slack_token)
-
-helpMessage = ""
-meetingMessage = "Meetings are the First Thursday of every month at 7pm! Please remember to bring your Membership Card and Rosary!!!!!!!"
-massMessage = "Sign up to help with mass at https://docs.google.com/spreadsheets/d/1s_lssu3mIT8ErbePxntWEJnuZR4RhUVaRMEYTUJ1R64/edit?usp=sharing The Knight's Mass is every Third Sunday of the month!"
-#                                                                                                                                                                                           spacing here is to force new line break
-requestMessage = "This Slack bot is in continuous development. If you have an idea or believe something should be changed feel free to message '@will' on Slack or message the bot with keyword request and \n\"<Request here in strings>\""
-calendarMessage = "Public Calendar for all events for the Fraternal year can be found at this link https://calendar.google.com/calendar/embed?src=ekacorqf8u5djofr8egll3il4s%40group.calendar.google.com&ctz=America/New_York"
-whoIsGKMessage = "The Grand Knight for this Fraternal Year is Will Whitlow('@will' on slack). Feel free to message him on Slack or email at wwhitlow@gatech.edu"
-whoIsDGKMessage = "The Deputy Grand Knight for this Fraternal Year is Andrew Lewis('@alewis' on slack). Feel free to message him on Slack or email at aklew12@gmail.com"
 
 if sc.rtm_connect():
     #Starts scanning loop
@@ -22,6 +17,7 @@ if sc.rtm_connect():
             message = json[0]
             #print message have Andrew DM bot to see what stays constant
             #Confirms that the api response contains text from a user to parse
+            #print message
             if u'text' in message.keys():
                 #Message in lowercase to ignore funky spelling
                 lowercaseString = message[u'text'].lower()
@@ -38,10 +34,54 @@ if sc.rtm_connect():
                         sc.rtm_send_message(message[u'channel'], massMessage)
                     if "calendar" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], calendarMessage)
+
+                    if "russian roulette" in lowercaseString:
+                        pull = random.randint(1,6)
+                        if (pull % 6 == 0):
+                            sc.rtm_send_message(message[u'channel'], "BANG! You died :disappointed:")
+                        else:
+                            sc.rtm_send_message(message[u'channel'], "Did you die? Click the link to find out\n gifs.com/gif/russian-roulette-click-wj1qEM")
+                    if "dice roll" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], "Dice Value: " + str(random.randint(1,6)))
+                    if "random number" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], "True Random Number " + str(random.randint(-sys.maxint, sys.maxint)))
+                    if "coin flip" in lowercaseString:
+                        print message
+
                     if "who" in lowercaseString and "deputy grand knight" in lowercaseString or "dgk" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsDGKMessage)
                     elif "who" in lowercaseString and "grand knight" in lowercaseString or "gk" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsGKMessage)
+
+                    if "who" in lowercaseString and "treasurer" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsTreasurerMessage) 
+                    
+                    if "who" in lowercaseString and "chancellor" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsChancellorMessage) 
+                    
+                    if "who" in lowercaseString and "warden" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsWardenMessage) 
+                    
+                    if "who" in lowercaseString and "advocate" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsAdvocateMessage) 
+                    
+                    if "who" in lowercaseString and "recorder" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsRecorderMessage) 
+                    
+                    if "who" in lowercaseString and "outside guard" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsOutsideGuardMessage) 
+                    
+                    if "who" in lowercaseString and "inside guard" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIsInsideGuardMessage) 
+                    
+                    if "who" in lowercaseString and "1st year trustee" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIs1stTrusteeMessage) 
+                    
+                    if "who" in lowercaseString and "2nd year trustee" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIs2ndTrusteeMessage) 
+                    
+                    if "who" in lowercaseString and "3rd year trustee" in lowercaseString:
+                        sc.rtm_send_message(message[u'channel'], whoIs3rdTrusteeMessage) 
         time.sleep(1)
 else:
     print "Connection Failed"
