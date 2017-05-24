@@ -46,7 +46,11 @@ if sc.rtm_connect():
                     if "random number" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], "True Random Number " + str(random.randint(-sys.maxint, sys.maxint)))
                     if "coin flip" in lowercaseString:
-                        print message
+                        coin = random.randint(0,1)
+                        if (coin):
+                            sc.rtm_send_message(message[u'channel'], "Heads")
+                        else:
+                            sc.rtm_send_message(message[u'channel'], "Tails")
 
                     if "who" in lowercaseString and "deputy grand knight" in lowercaseString or "dgk" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsDGKMessage)
