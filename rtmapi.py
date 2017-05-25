@@ -18,11 +18,11 @@ if sc.rtm_connect():
             #print message have Andrew DM bot to see what stays constant
             #Confirms that the api response contains text from a user to parse
             #print message
-            if u'text' in message.keys():
+            if u'text' in message.keys() and u'channel' in message.keys():
                 #Message in lowercase to ignore funky spelling
                 lowercaseString = message[u'text'].lower()
                 #Checks to see if lackeybot is mentioned in the text
-                if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString:
+                if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D":
                     #Searches for keywords in messages
                     if "help" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], helpMessage)
@@ -52,9 +52,11 @@ if sc.rtm_connect():
                         else:
                             sc.rtm_send_message(message[u'channel'], "Tails")
 
-                    if "who" in lowercaseString and "deputy grand knight" in lowercaseString or "dgk" in lowercaseString:
+
+                    if "who" in lowercaseString and "deputy grand knight" in lowercaseString or " dgk " in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsDGKMessage)
-                    elif "who" in lowercaseString and "grand knight" in lowercaseString or "gk" in lowercaseString:
+
+                    elif "who" in lowercaseString and "grand knight" in lowercaseString or " gk " in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsGKMessage)
 
                     if "who" in lowercaseString and "treasurer" in lowercaseString:
@@ -72,20 +74,19 @@ if sc.rtm_connect():
                     if "who" in lowercaseString and "recorder" in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsRecorderMessage) 
                     
-                    if "who" in lowercaseString and "outside guard" in lowercaseString:
+                    if "who" in lowercaseString and "outside guard" in lowercaseString or " og " in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsOutsideGuardMessage) 
                     
-                    if "who" in lowercaseString and "inside guard" in lowercaseString:
+                    if "who" in lowercaseString and "inside guard" in lowercaseString or " ig " in lowercaseString:
                         sc.rtm_send_message(message[u'channel'], whoIsInsideGuardMessage) 
                     
-                    if "who" in lowercaseString and "1st year trustee" in lowercaseString:
-                        sc.rtm_send_message(message[u'channel'], whoIs1stTrusteeMessage) 
-                    
-                    if "who" in lowercaseString and "2nd year trustee" in lowercaseString:
-                        sc.rtm_send_message(message[u'channel'], whoIs2ndTrusteeMessage) 
-                    
-                    if "who" in lowercaseString and "3rd year trustee" in lowercaseString:
-                        sc.rtm_send_message(message[u'channel'], whoIs3rdTrusteeMessage) 
+                    if "who" in lowercaseString and "trustee" in lowercaseString:
+                        if "1st" in lowercaseString or "first" in lowercaseString:
+                            sc.rtm_send_message(message[u'channel'], whoIs1stTrusteeMessage) 
+                        elif "2nd" in lowercaseString or "second" in lowercaseString:
+                            sc.rtm_send_message(message[u'channel'], whoIs2ndTrusteeMessage) 
+                        elif "3rd" in lowercaseString or "third" in lowercaseString:
+                            sc.rtm_send_message(message[u'channel'], whoIs3rdTrusteeMessage) 
         time.sleep(1)
 else:
     print "Connection Failed"
