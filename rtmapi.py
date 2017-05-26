@@ -36,11 +36,11 @@ def parseMessage():
             sc.rtm_send_message(message[u'channel'], "Heads")
         else:
             sc.rtm_send_message(message[u'channel'], "Tails")
-            
-    if "who" in lowercaseString and "deputy grand knight" in lowercaseString or " dgk " in lowercaseString:
+
+    if "who" in lowercaseString and "deputy grand knight" in lowercaseString or " dgk" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], whoIsDGKMessage)
 
-    elif "who" in lowercaseString and "grand knight" in lowercaseString or " gk " in lowercaseString:
+    elif "who" in lowercaseString and "grand knight" in lowercaseString or " gk" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], whoIsGKMessage)
 
     if "who" in lowercaseString and "treasurer" in lowercaseString:
@@ -58,10 +58,10 @@ def parseMessage():
     if "who" in lowercaseString and "recorder" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], whoIsRecorderMessage) 
     
-    if "who" in lowercaseString and "outside guard" in lowercaseString or " og " in lowercaseString:
+    if "who" in lowercaseString and "outside guard" in lowercaseString or " og" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], whoIsOutsideGuardMessage) 
     
-    if "who" in lowercaseString and "inside guard" in lowercaseString or " ig " in lowercaseString:
+    if "who" in lowercaseString and "inside guard" in lowercaseString or " ig" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], whoIsInsideGuardMessage) 
     
     if "who" in lowercaseString and "trustee" in lowercaseString:
