@@ -90,9 +90,16 @@ if sc.rtm_connect():
                     #Searches for keywords in messages
                     if "request" in lowercaseString:
                         if "prayer" in lowercaseString:
-                            sc.rtm_send_message(message[u'channe'], requestMessage)
-                        else:
                             sc.rtm_send_message(message[u'channel'], requestMessage)
+                        elif "feature" in lowercaseString:
+                            if '"' in lowercaseString:
+                                request = lowercaseString.split('"')
+                                sc.rtm_send_message(message[u'channel'], "Your request has been recorded and forwarded to '@will' current developer")
+                                sc.rtm_send_message("D5FDFE517", "New Feature Idea: " + request[1])
+                            else:
+                                sc.rtm_send_message(message[u'channel'], requestMessage)
+                        else:
+                            sc.rtm_send_message(message[u'channel'], "Sorry couldn't parse request make sure to differentiate between a prayer and feature request")
                     else:
                         parseMessage()
         time.sleep(1)
