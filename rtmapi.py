@@ -1,3 +1,4 @@
+import datetime
 import os
 import random
 import sys
@@ -19,6 +20,17 @@ def parseMessage():
         sc.rtm_send_message(message[u'channel'], massMessage)
     if "calendar" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], calendarMessage)
+    if "rosary" in lowercaseString or "mystery" in lowercaseString or "mysteries" in lowercaseString:
+        date = datetime.datetime.today().weekday()
+        print date
+        if (date == 0 or date == 5):
+            sc.rtm_send_message(message[u'channel'], joyfulMessage)
+        elif (date == 1 or date == 4):
+            sc.rtm_send_message(message[u'channel'], sorrowfulMessage)
+        elif (date == 2 or date == 6):
+            sc.rtm_send_message(message[u'channel'], gloriousMessage)
+        else:
+            sc.rtm_send_message(message[u'channel'], luminousMessage)
 
     if "russian roulette" in lowercaseString:
         pull = random.randint(1,6)
