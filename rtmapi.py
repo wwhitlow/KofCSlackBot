@@ -22,7 +22,6 @@ def parseMessage():
         sc.rtm_send_message(message[u'channel'], calendarMessage)
     if "rosary" in lowercaseString or "mystery" in lowercaseString or "mysteries" in lowercaseString:
         date = datetime.datetime.today().weekday()
-        print date
         if (date == 0 or date == 5):
             sc.rtm_send_message(message[u'channel'], joyfulMessage)
         elif (date == 1 or date == 4):
@@ -31,6 +30,11 @@ def parseMessage():
             sc.rtm_send_message(message[u'channel'], gloriousMessage)
         else:
             sc.rtm_send_message(message[u'channel'], luminousMessage)
+
+    if "what's the good word" in lowercaseString:
+        sc.rtm_send_message(message[u'channel'], THWg)
+    if "how about them dawgs" in lowercaseString or "how about them dogs" in lowercaseString:
+        sc.rtm_send_message(message[u'channel'], pissOnThem)
 
     if "russian roulette" in lowercaseString:
         pull = random.randint(1,6)

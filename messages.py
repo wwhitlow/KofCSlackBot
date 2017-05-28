@@ -10,6 +10,9 @@ sorrowfulMessage = "The Sorrowful Mysteries Are:\n1. The Agony of Jesus in the G
 gloriousMessage = "The Glorious Mysteries Are:\n1. The Resurrection of Jesus Christ\n2. The Acension of Jesus to Heaven\n3. The Descent of the Holy Spirit at Pentecost\n4. The Assumption of Mary into Heaven\n5. Mary is Crowned as Queen of Heaven and Earth"
 luminousMessage = "The Luminous Mysteries Are:\n1. The Baptism in the Jordan\n2. The Wedding at Cana\n3. The Proclamation of the Kingdom of God\n4. The Transiguration\n5. The Institution of the Eucharist"
 
+THWg = "TO HELL WITH GEORGIA!!!"
+pissOnThem = "Piss on Them!!!"
+
 whoIsGKMessage = "The Grand Knight for this Fraternal Year is Will Whitlow(@will on slack). Feel free to message him on Slack, call/text at 706-302-7470, or email at wwhitlow@gatech.edu"
 whoIsDGKMessage = "The Deputy Grand Knight for this Fraternal Year is Andrew Lewis(@alewis on slack). Feel free to message him on Slack or email at aklew12@gmail.com"
 whoIsTreasurerMessage = "The Treasurer for this Fraternal Year is Clay Newman(@clay.newman on slack). Feel free to message him on Slack or email at i don't have it :disappointed:"
