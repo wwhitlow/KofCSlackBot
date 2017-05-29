@@ -26,11 +26,12 @@ whoIs1stTrusteeMessage = "The 1st Year Trustee for this Fraternal Year is Andrew
 whoIs2ndTrusteeMessage = "The 2nd Year Trustee for this Fraternal Year is Mitchell Tuck(not on slack :disappointed:). Feel free to message him on Slack or email at i don't have it :disappointed:"
 whoIs3rdTrusteeMessage = "The 3rd Year Trustee for this Fraternal Year is Zach Basel(@zbasel12 on slack). Feel free to message him on Slack or email at i don't have it :disappointed:"
 
-whoIsProLifeDirector = "";
-whoIsChurchDirector = "";
-whoIsCommunityDirector = "";
-whoIsYouthDirector = "";
-whoIsFamilyDirector = "";
+whoIsProLifeDirector = "The Pro-life Director for this Fraternal Year is Nick Korzik(not on slack). Feel free to message him on Slack or email at I don't have it :disappointed:"
+whoIsChurchDirector = "The Church Director for this Fraternal Year is Rafael Murphy(not on slack). Feel free to message him on Slack or email at I don't have it :dissappointed:"
+whoIsCommunityDirector = "The Community Director for this Fraternal Year is Chris Larkins(@calarkins on slack). Feel free to message him on Slack or email at I don't have it :disappointed:"
+whoIsCouncilDirector = "The Council Director for this Fraternal Year is Dan Theriault(@dtheriault on slack). Feel free to message him on Slack or email at I don't have it :dissappointed:"
+whoIsYouthDirector = "The Youth Director for this Fraternal Year is Ian Sebastian(@e-n on slack). Feel free to message him on Slack or email at I don't have it :disappointed:"
+whoIsFamilyDirector = "TBD"
 
 
 def parseMessage():
