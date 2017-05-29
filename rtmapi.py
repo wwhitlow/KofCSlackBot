@@ -86,7 +86,21 @@ def parseMessage():
         elif "2nd" in lowercaseString or "second" in lowercaseString:
             sc.rtm_send_message(message[u'channel'], whoIs2ndTrusteeMessage) 
         elif "3rd" in lowercaseString or "third" in lowercaseString:
-            sc.rtm_send_message(message[u'channel'], whoIs3rdTrusteeMessage) 
+            sc.rtm_send_message(message[u'channel'], whoIs3rdTrusteeMessage)
+
+    if "who" in lowercaseString and "director" in lowercaseString:
+        if "pro" in lowercaseString and "life" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], whoIsProLifeDirector)
+        elif "church" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], whoIsChurchDirector)
+        elif "community" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], whoIsCommunityDirector)
+        elif "council" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], whoIsCouncilDirector)
+        elif "youth" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], whoIsYouthDirector)
+        elif "family" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], whoIsFamilyDirector)
 
 
 if sc.rtm_connect():
