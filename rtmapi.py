@@ -134,4 +134,4 @@ if sc.rtm_connect():
                         parseMessage()
         time.sleep(1)
 else:
-    print "Connection Failed"
+    print("Connection Failed")
