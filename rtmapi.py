@@ -15,14 +15,18 @@ date = datetime.datetime.today()
 def parseMessage():
     if "help" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], helpMessage)
+
     if "meeting" in lowercaseString or "business" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], meetingMessage)
+
     if "mass" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], massMessage)
+
     if "calendar" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], calendarMessage)
+
     if "rosary" in lowercaseString or "mystery" in lowercaseString or "mysteries" in lowercaseString:
-        weeekday = date.weekday()
+        weekday = date.weekday()
         if (weekday == 0 or weekday == 5):
             sc.rtm_send_message(message[u'channel'], joyfulMessage)
         elif (weekday == 1 or weekday == 4):
