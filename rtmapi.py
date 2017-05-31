@@ -3,14 +3,16 @@ import datetime
 from messages import *
 import os
 import random
-import sys
 from slackclient import SlackClient
+import sqlite3
+import sys
 import time
 
 slack_token = os.environ["SLACK_API_TOKEN"]
 sc = SlackClient(slack_token)
 
 date = datetime.datetime.today()
+
 
 def parseMessage():
     if "help" in lowercaseString:
@@ -125,14 +127,21 @@ if sc.rtm_connect():
                     #Searches for keywords in messages
                     if "request" in lowercaseString:
                         if "prayer" in lowercaseString:
+                            conn = sqlite3.connect('prayerRequests.db')
+                            c = conn.cursor()
                             if '"' in lowercaseString:
-                                request = lowercaseString.split('"')
-                                #message[u'user'], request[1], date
+                                request = message[u'text'].split('"')
+                                pR = (message[u'user'], request[1], date.now(),)
+                                c.execute("INSERT INTO requests VALUES (?,?,?)", pR)
+                                conn.commit()
                             else:
                                 sc.rtm_send_message(message[u'channel'], requestMessage)
+                            c.execute('SELECT * FROM requests')
+                            print c.fetchone()
+                            conn.close()
                         elif "feature" in lowercaseString:
                             if '"' in lowercaseString:
-                                request = lowercaseString.split('"')
+                                request = message[u'text'].split('"')
                                 sc.rtm_send_message(message[u'channel'], "Your request has been recorded and forwarded to '@will' current developer")
                                 sc.rtm_send_message("D5FDFE517", "New Feature Idea: " + request[1])
                             else:

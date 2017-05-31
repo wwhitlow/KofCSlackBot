@@ -1,2 +1,4 @@
 start_script.sh
 messages.pyc
+dbinit.py
+prayerRequests.db
