@@ -1,15 +1,16 @@
 import datetime
+#Imports messages from another python file
+from messages import *
 import os
 import random
 import sys
 from slackclient import SlackClient
-#Imports messages from another python file
-from messages import *
 import time
 
 slack_token = os.environ["SLACK_API_TOKEN"]
 sc = SlackClient(slack_token)
 
+date = datetime.datetime.today()
 
 def parseMessage():
     if "help" in lowercaseString:
@@ -21,12 +22,12 @@ def parseMessage():
     if "calendar" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], calendarMessage)
     if "rosary" in lowercaseString or "mystery" in lowercaseString or "mysteries" in lowercaseString:
-        date = datetime.datetime.today().weekday()
-        if (date == 0 or date == 5):
+        weeekday = date.weekday()
+        if (weekday == 0 or weekday == 5):
             sc.rtm_send_message(message[u'channel'], joyfulMessage)
-        elif (date == 1 or date == 4):
+        elif (weekday == 1 or weekday == 4):
             sc.rtm_send_message(message[u'channel'], sorrowfulMessage)
-        elif (date == 2 or date == 6):
+        elif (weekday == 2 or weekday == 6):
             sc.rtm_send_message(message[u'channel'], gloriousMessage)
         else:
             sc.rtm_send_message(message[u'channel'], luminousMessage)
@@ -120,7 +121,11 @@ if sc.rtm_connect():
                     #Searches for keywords in messages
                     if "request" in lowercaseString:
                         if "prayer" in lowercaseString:
-                            sc.rtm_send_message(message[u'channel'], requestMessage)
+                            if '"' in lowercaseString:
+                                request = lowercaseString.split('"')
+                                #message[u'user'], request[1], date
+                            else:
+                                sc.rtm_send_message(message[u'channel'], requestMessage)
                         elif "feature" in lowercaseString:
                             if '"' in lowercaseString:
                                 request = lowercaseString.split('"')
