@@ -123,9 +123,9 @@ if sc.rtm_connect():
                 #Message in lowercase to ignore funky spelling
                 lowercaseString = message[u'text'].lower()
                 #Checks to see if lackeybot is mentioned in the text
-                if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D":
+                if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D" and message[u'user'] != "U5GQDKHN2":
                     #Searches for keywords in messages
-                    if "request" in lowercaseString:
+                    if "request" in lowercaseString or "requests" in lowercaseString:
                         if "prayer" in lowercaseString:
                             conn = sqlite3.connect('prayerRequests.db')
                             c = conn.cursor()
@@ -134,10 +134,15 @@ if sc.rtm_connect():
                                 pR = (message[u'user'], request[1], date.now(),)
                                 c.execute("INSERT INTO requests VALUES (?,?,?)", pR)
                                 conn.commit()
+                            elif "list" in lowercaseString:
+                                c.execute('SELECT * FROM requests')
+                                requests = c.fetchall()
+                                msg = "List of Prayer Requests Submitted by the Council:"
+                                for req in requests:
+                                    msg =  msg + "\n" + req[1]
+                                sc.rtm_send_message(message[u'channel'], msg)
                             else:
                                 sc.rtm_send_message(message[u'channel'], requestMessage)
-                            c.execute('SELECT * FROM requests')
-                            print c.fetchone()
                             conn.close()
                         elif "feature" in lowercaseString:
                             if '"' in lowercaseString:
