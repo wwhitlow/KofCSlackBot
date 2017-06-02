@@ -129,7 +129,13 @@ if sc.rtm_connect():
                         if "prayer" in lowercaseString:
                             conn = sqlite3.connect('prayerRequests.db')
                             c = conn.cursor()
-                            if '"' in lowercaseString:
+                            if "delete" in lowercaseString or "remove" in lowercaseString and '"' in lowercaseString:
+                                rm = message[u'text'].split('"')
+                                rf = (message[u'user'], rm[1],)
+                                c.execute("DELETE FROM requests WHERE user_id = ? AND prayer_intention = ?", rf)
+                                conn.commit()
+                                sc.rtm_send_message(message[u'channel'], "Delete Command Run!")
+                            elif "add" in lowercaseString:
                                 request = message[u'text'].split('"')
                                 pR = (message[u'user'], request[1], date.now(),)
                                 c.execute("INSERT INTO requests VALUES (?,?,?)", pR)
