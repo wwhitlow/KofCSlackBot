@@ -19,7 +19,10 @@ def parseMessage():
         sc.rtm_send_message(message[u'channel'], helpMessage)
 
     if "meeting" in lowercaseString or "business" in lowercaseString:
-        sc.rtm_send_message(message[u'channel'], meetingMessage)
+        if "minutes" in lowercaseString:
+            sc.rtm_send_message(message[u'channel'], "Minute Meetings found at this link: ")
+        else:
+            sc.rtm_send_message(message[u'channel'], meetingMessage)
 
     if "mass" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], massMessage)
