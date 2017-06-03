@@ -162,6 +162,29 @@ if sc.rtm_connect():
                                 sc.rtm_send_message(message[u'channel'], requestMessage)
                         else:
                             sc.rtm_send_message(message[u'channel'], "Sorry couldn't parse request make sure to differentiate between a prayer and feature request")
+                    elif "degree" in lowercaseString:
+                        if "list" in lowercaseString:
+                            degreeConn = sqlite3.connect('degreeDb.db')
+                            dlist = degreeConn.cursor()
+                            upcoming = "Upcoming "
+                            if "first" in lowercaseString or "1st" in lowercaseString:
+                                dlist.execute('SELECT * FROM  first_degrees')
+                                first = dlist.fetchall()
+                                upcoming = upcoming + "First Degrees:"
+                                for f in first:
+                                    upcoming = upcoming + "\n" + f[0]
+                            elif "second" in lowercaseString or "2nd" in lowercaseString:
+                                dlist.execute('SELECT * FROM  second_degrees')
+                                second = dlist.fetchall()
+                                upcoming = upcoming + "Second Degrees:"
+                                for s in second:
+                                    upcoming = upcoming + "\n" + s[0]
+                            elif "third" in lowercaseString or "3rd" in lowercaseString:
+                                dlist.execute('SELECT * FROM  third_degrees')
+                                third = dlist.fetchall()
+                                upcoming = upcoming + "Third Degrees:"
+                                for t in third:
+                                    upcoming = upcoming + "\n" + t[0]
                     else:
                         parseMessage()
         time.sleep(1)
