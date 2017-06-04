@@ -185,6 +185,22 @@ if sc.rtm_connect():
                                 upcoming = upcoming + "Third Degrees:"
                                 for t in third:
                                     upcoming = upcoming + "\n" + t[0]
+                            else:
+                                dlist.execute('SELECT * FROM  first_degrees')
+                                first = dlist.fetchall()
+                                upcoming = upcoming + "First Degrees:"
+                                for f in first:
+                                    upcoming = upcoming + "\n" + f[0]
+                                dlist.execute('SELECT * FROM  second_degrees')
+                                second = dlist.fetchall()
+                                upcoming = upcoming + "Second Degrees:"
+                                for s in second:
+                                    upcoming = upcoming + "\n" + s[0]
+                                dlist.execute('SELECT * FROM  third_degrees')
+                                third = dlist.fetchall()
+                                upcoming = upcoming + "Third Degrees:"
+                                for t in third:
+                                    upcoming = upcoming + "\n" + t[0]
                     else:
                         parseMessage()
         time.sleep(1)
