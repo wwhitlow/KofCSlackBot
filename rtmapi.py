@@ -127,6 +127,7 @@ if sc.rtm_connect():
                 lowercaseString = message[u'text'].lower()
                 #Checks to see if lackeybot is mentioned in the text
                 if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D" and message[u'user'] != "U5GQDKHN2":
+                    minutesMessage(message)
                     #Searches for keywords in messages
                     if "request" in lowercaseString or "requests" in lowercaseString:
                         if "prayer" in lowercaseString:
