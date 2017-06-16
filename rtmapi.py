@@ -13,14 +13,14 @@ sc = SlackClient(slack_token)
 
 date = datetime.datetime.today()
 
-
+    
 def parseMessage():
     if "help" in lowercaseString:
-        sc.rtm_send_message(message[u'channel'], helpMessage)
+        sc.rtm_send_message(message[u'channel'], helpMsg)
 
     if "meeting" in lowercaseString or "business" in lowercaseString:
         if "minutes" in lowercaseString:
-            sc.rtm_send_message(message[u'channel'], "Minute Meetings found at this link: ")
+            sc.rtm_send_message(message[u'channel'], minutesMsg)
         else:
             sc.rtm_send_message(message[u'channel'], meetingMessage)
 
@@ -121,14 +121,14 @@ if sc.rtm_connect():
             message = json[0]
             #print message have Andrew DM bot to see what stays constant
             #Confirms that the api response contains text from a user to parse
-            #print message
             if u'text' in message.keys() and u'channel' in message.keys():
+                #print message
                 #Message in lowercase to ignore funky spelling
                 lowercaseString = message[u'text'].lower()
                 #Checks to see if lackeybot is mentioned in the text
                 if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D" and message[u'user'] != "U5GQDKHN2":
-                    minutesMessage(message)
                     #Searches for keywords in messages
+                    minutesMessage(message[u'channel'])
                     if "request" in lowercaseString or "requests" in lowercaseString:
                         if "prayer" in lowercaseString:
                             conn = sqlite3.connect('prayerRequests.db')
