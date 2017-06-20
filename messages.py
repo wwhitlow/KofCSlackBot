@@ -10,6 +10,8 @@ import time
 slack_token = os.environ["SLACK_API_TOKEN"]
 sc = SlackClient(slack_token)
 
+methodDict = {}
+
 #helpMessage apparently crashes the slack client...
 helpMsg = "placeholder"
 meetingMessage = "Meetings are the First Thursday of every month at 7pm in the Classroom at the CC(if you don't know where that is start in the basement and someone should be able to help you)! Please remember to bring your Membership Card and Rosary!!!!!!!"
@@ -53,8 +55,12 @@ sc.rtm_connect()
 def helpMessage(channel):
     sc.rtm_send_message(channel, helpMsg)
 
+#methodDict['help'] = helpMessage
+
 def minutesMessage(channel):
     sc.rtm_send_message(channel, minutesMsg)
+
+methodDict['minutes'] = minutesMessage
 
 def meetingMessage(channel):
     sc.rtm_send_message(channel, meetingMessage)
@@ -100,3 +106,42 @@ def chancellorMessage(channel):
 
 def wardenMessage(channel):
     sc.rtm_send_message(channel, whoIsWardenMessage)
+
+def advocateMessage(channel):
+    sc.rtm_send_message(channel, whoIsAdvocateMessage)
+
+def recorderMessage(channel):
+    sc.rtm_send_message(channel, whoIsRecorderMessage)
+
+def insideGuardMessage(channel):
+    sc.rtm_send_message(channel, whoIsInsideGuardMessage)
+
+def outsideGuardMessage(channel):
+    sc.rtm_send_message(channel, whoIsOutsideGuardMessage)
+
+def firstTrusteeMessage(channel):
+    sc.rtm_send_message(channel, whoIs1stTrusteeMessage)
+
+def secondTrusteeMessage(channel):
+    sc.rtm_send_message(channel, whoIs2ndTrusteeMessage)
+
+def thirdTrusteeMessage(channel):
+    sc.rtm_send_message(channel, whoIs3rdTrusteeMessage)
+
+def proLifeDirectorMessage(channel):
+    sc.rtm_send_message(channel, whoIsProLifeDirector)
+
+def churchDirectorMessage(channel):
+    sc.rtm_send_message(channel, whoIsChurchDirector)
+
+def communityDirectorMessage(channel):
+    sc.rtm_send_message(channel, whoIsCommunityDirector)
+
+def councilDirectorMessage(channel):
+    sc.rtm_send_message(channel, whoIsCouncilDirector)
+
+def youthDirectorMessage(channel):
+    sc.rtm_send_message(channel, whoIsYouthDirector)
+
+def familyDirectorMessage(channel):
+    sc.rtm_send_message(channel, whoIsFamilyDirector)

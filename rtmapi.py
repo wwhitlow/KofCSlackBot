@@ -128,7 +128,8 @@ if sc.rtm_connect():
                 #Checks to see if lackeybot is mentioned in the text
                 if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D" and message[u'user'] != "U5GQDKHN2":
                     #Searches for keywords in messages
-                    minutesMessage(message[u'channel'])
+                    #minutesMessage(message[u'channel'])
+                    methodDict['minutes'](message[u'channel'])
                     if "request" in lowercaseString or "requests" in lowercaseString:
                         if "prayer" in lowercaseString:
                             conn = sqlite3.connect('prayerRequests.db')
