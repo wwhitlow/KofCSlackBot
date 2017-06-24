@@ -80,74 +80,124 @@ methodDict['request'] = requestMessage
 def calendarMessage(channel):
     sc.rtm_send_message(channel, calendarMsg)
 
+methodDict['calendar'] = calendarMessage
+
 def joyfulMessage(channel):
     sc.rtm_send_message(channel, joyfulMsg)
+
+methodDict['joy'] = joyfulMessage
 
 def sorrowfulMessage(channel):
     sc.rtm_send_message(channel, sorrowfulMsg)
 
+methodDict['sorrow'] = sorrowfulMessage
+
 def gloriousMessage(channel):
     sc.rtm_send_message(channel, gloriousMsg)
+
+methodDict['glorious'] = gloriousMessage
 
 def luminousMessage(channel):
     sc.rtm_send_message(channel, luminousMsg)
 
+methodDict['luminous'] = luminousMessage
+
 def THWgMsg(channel):
     sc.rtm_send_message(channel, THWgMessage)
+
+methodDict["what's the good word"] = THWgMsg
 
 def pissOnThemMsg(channel):
     sc.rtm_send_message(channel, pissOnThemMessage)
 
+methodDict['how about them dawgs'] = pissOnThemMsg
+
 def GKMessage(channel):
     sc.rtm_send_message(channel, whoIsGKMessage)
+
+methodDict['grand knight'] = GKMessage
 
 def DGKMessage(channel):
     sc.rtm_send_message(channel, whoIsDGKMessage)
 
+methodDict['deputy grand knight'] = DGKMessage
+
 def treasurerMessage(channel):
     sc.rtm_send_message(channel, whoIsTreasurerMessage)
+
+methodDict['treasurer'] = treasurerMessage
 
 def chancellorMessage(channel):
     sc.rtm_send_message(channel, whoIsChancellorMessage)
 
+methodDict['chancellor'] = chancellorMessage
+
 def wardenMessage(channel):
     sc.rtm_send_message(channel, whoIsWardenMessage)
+
+methodDict['warden'] = wardenMessage
 
 def advocateMessage(channel):
     sc.rtm_send_message(channel, whoIsAdvocateMessage)
 
+methodDict['advocate'] = advocateMessage
+
 def recorderMessage(channel):
     sc.rtm_send_message(channel, whoIsRecorderMessage)
+
+methodDict['recorder'] = recorderMessage
 
 def insideGuardMessage(channel):
     sc.rtm_send_message(channel, whoIsInsideGuardMessage)
 
+methodDict['inside guard'] = insideGuardMessage
+
 def outsideGuardMessage(channel):
     sc.rtm_send_message(channel, whoIsOutsideGuardMessage)
+
+methodDict['outside guard'] = outsideGuardMessage
 
 def firstTrusteeMessage(channel):
     sc.rtm_send_message(channel, whoIs1stTrusteeMessage)
 
+methodDict['first year trustee'] = firstTrusteeMessage
+
 def secondTrusteeMessage(channel):
     sc.rtm_send_message(channel, whoIs2ndTrusteeMessage)
+
+methodDict['second year trustee'] = secondTrusteeMessage
 
 def thirdTrusteeMessage(channel):
     sc.rtm_send_message(channel, whoIs3rdTrusteeMessage)
 
+methodDict['third year trustee'] = thirdTrusteeMessage
+
 def proLifeDirectorMessage(channel):
     sc.rtm_send_message(channel, whoIsProLifeDirector)
+
+methodDict['prolife'] = proLifeDirectorMessage
 
 def churchDirectorMessage(channel):
     sc.rtm_send_message(channel, whoIsChurchDirector)
 
+methodDict['church'] = churchDirectorMessage
+
 def communityDirectorMessage(channel):
     sc.rtm_send_message(channel, whoIsCommunityDirector)
+
+methodDict['community'] = communityDirectorMessage
 
 def councilDirectorMessage(channel):
     sc.rtm_send_message(channel, whoIsCouncilDirector)
 
+methodDict['council'] = councilDirectorMessage
+
 def youthDirectorMessage(channel):
     sc.rtm_send_message(channel, whoIsYouthDirector)
 
+methodDict['youth'] = youthDirectorMessage
+
 def familyDirectorMessage(channel):
     sc.rtm_send_message(channel, whoIsFamilyDirector)
+
+methodDict['family'] = familyDirectorMessage
