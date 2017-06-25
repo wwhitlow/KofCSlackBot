@@ -6,3 +6,4 @@ logdbinit.py
 slackLog.db
 degreeDb.db
 degreedbinit.py
+kofcDb.db

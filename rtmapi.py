@@ -130,7 +130,7 @@ if sc.rtm_connect():
                     #Searches for keywords in messages
                     if "request" in lowercaseString or "requests" in lowercaseString:
                         if "prayer" in lowercaseString:
-                            conn = sqlite3.connect('prayerRequests.db')
+                            conn = sqlite3.connect('kofcDb.db')
                             c = conn.cursor()
                             if "delete" in lowercaseString or "remove" in lowercaseString and '"' in lowercaseString:
                                 rm = message[u'text'].split('"')
@@ -164,7 +164,7 @@ if sc.rtm_connect():
                             sc.rtm_send_message(message[u'channel'], "Sorry couldn't parse request make sure to differentiate between a prayer and feature request")
                     elif "degree" in lowercaseString or "degrees" in lowecaseString:
                         if "list" in lowercaseString:
-                            degreeConn = sqlite3.connect('degreeDb.db')
+                            degreeConn = sqlite3.connect('kofcDb.db')
                             dlist = degreeConn.cursor()
                             upcoming = "Upcoming "
                             if "first" in lowercaseString or "1st" in lowercaseString:
