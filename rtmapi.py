@@ -128,8 +128,6 @@ if sc.rtm_connect():
                 #Checks to see if lackeybot is mentioned in the text
                 if "lackeybot" in lowercaseString or "@u5gqdkhn2" in lowercaseString or message[u'channel'][0] == "D" and message[u'user'] != "U5GQDKHN2":
                     #Searches for keywords in messages
-                    #minutesMessage(message[u'channel'])
-                    methodDict['minutes'](message[u'channel'])
                     if "request" in lowercaseString or "requests" in lowercaseString:
                         if "prayer" in lowercaseString:
                             conn = sqlite3.connect('prayerRequests.db')
@@ -164,7 +162,7 @@ if sc.rtm_connect():
                                 sc.rtm_send_message(message[u'channel'], requestMessage)
                         else:
                             sc.rtm_send_message(message[u'channel'], "Sorry couldn't parse request make sure to differentiate between a prayer and feature request")
-                    elif "degree" in lowercaseString:
+                    elif "degree" in lowercaseString or "degrees" in lowecaseString:
                         if "list" in lowercaseString:
                             degreeConn = sqlite3.connect('degreeDb.db')
                             dlist = degreeConn.cursor()
