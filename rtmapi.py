@@ -162,7 +162,7 @@ if sc.rtm_connect():
                                 sc.rtm_send_message(message[u'channel'], requestMessage)
                         else:
                             sc.rtm_send_message(message[u'channel'], "Sorry couldn't parse request make sure to differentiate between a prayer and feature request")
-                    elif "degree" in lowercaseString or "degrees" in lowecaseString:
+                    elif "degree" in lowercaseString or "degrees" in lowercaseString:
                         if "list" in lowercaseString:
                             degreeConn = sqlite3.connect('kofcDb.db')
                             dlist = degreeConn.cursor()
