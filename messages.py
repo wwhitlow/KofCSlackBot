@@ -50,7 +50,7 @@ whoIsCouncilDirector = "The Council Director for this Fraternal Year is Dan Ther
 whoIsYouthDirector = "The Youth Director for this Fraternal Year is Ian Sebastian(@e-n on slack). Feel free to message him on Slack or email at I don't have it :disappointed:"
 whoIsFamilyDirector = "TBD"
 
-sc.rtm_connect()
+#sc.rtm_connect()
 
 def helpMessage(channel):
     sc.rtm_send_message(channel, helpMsg)

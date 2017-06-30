@@ -22,24 +22,24 @@ def parseMessage():
         if "minutes" in lowercaseString:
             sc.rtm_send_message(message[u'channel'], minutesMsg)
         else:
-            sc.rtm_send_message(message[u'channel'], meetingMessage)
+            sc.rtm_send_message(message[u'channel'], meetingMsg)
 
     if "mass" in lowercaseString:
-        sc.rtm_send_message(message[u'channel'], massMessage)
+        sc.rtm_send_message(message[u'channel'], massMsg)
 
     if "calendar" in lowercaseString:
-        sc.rtm_send_message(message[u'channel'], calendarMessage)
+        sc.rtm_send_message(message[u'channel'], calendarMsg)
 
     if "rosary" in lowercaseString or "mystery" in lowercaseString or "mysteries" in lowercaseString:
         weekday = date.weekday()
         if (weekday == 0 or weekday == 5):
-            sc.rtm_send_message(message[u'channel'], joyfulMessage)
+            sc.rtm_send_message(message[u'channel'], joyfulMsg)
         elif (weekday == 1 or weekday == 4):
-            sc.rtm_send_message(message[u'channel'], sorrowfulMessage)
+            sc.rtm_send_message(message[u'channel'], sorrowfulMsg)
         elif (weekday == 2 or weekday == 6):
-            sc.rtm_send_message(message[u'channel'], gloriousMessage)
+            sc.rtm_send_message(message[u'channel'], gloriousMsg)
         else:
-            sc.rtm_send_message(message[u'channel'], luminousMessage)
+            sc.rtm_send_message(message[u'channel'], luminousMsg)
 
     if "what's the good word" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], THWg)
