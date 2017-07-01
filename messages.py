@@ -13,7 +13,7 @@ sc = SlackClient(slack_token)
 methodDict = {}
 
 #helpMessage apparently crashes the slack client...
-helpMsg = "The slack bot searches for keywords in your messages for replies. You can ask it various questions such as when are the meetings, what are today's Rosary mysteries, or who is the Grand Knigt. As well as various other useful information including Knight's mass sign up link, meeting minutes, and prayer requests that brothers have added. Try more help for a complete list of commands"
+helpMsg = "The slack bot searches for keywords in your messages for replies. You can ask it various questions such as when are the meetings, what are today's Rosary mysteries, or who is the Grand Knigt. As well as various other useful information including Knight's mass sign up link, meeting minutes, and prayer requests that brothers have added. Try '--help' for a complete list of commands"
 meetingMsg = "Meetings are the First Thursday of every month at 7pm in the Classroom at the CC(if you don't know where that is start in the basement and someone should be able to help you)! Please remember to bring your Membership Card and Rosary!!!!!!!"
 #minutesMessage also does not work...
 minutesMsg = "Minute Meetings found at this link: "
