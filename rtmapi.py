@@ -15,11 +15,10 @@ date = datetime.datetime.today()
 
     
 def parseMessage():
-    if "help" in lowercaseString:
-        sc.rtm_send_message(message[u'channel'], helpMsg)
-
     if "--help" in lowercaseString:
         sc.rtm_send_message(message[u'channel'], commandMsg)
+    elif "help" in lowercaseString:
+        sc.rtm_send_message(message[u'channel'], helpMsg)
 
     if "meeting" in lowercaseString or "business" in lowercaseString:
         if "minutes" in lowercaseString:
