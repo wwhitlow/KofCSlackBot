@@ -47,7 +47,7 @@ according to the design of your holy will.
 Through his intercession, grant the favor I
 now present (here make your request).
 Through Christ our Lord. Amen.
-Our Father Hail Mary Glory be to the Father """ 
+Our Father, Hail Mary, and Glory Be """ 
 
 THWg = "TO HELL WITH GEORGIA!!!"
 pissOnThem = "Piss on Them!!!"
