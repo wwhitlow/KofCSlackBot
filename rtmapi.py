@@ -152,6 +152,7 @@ if sc.rtm_connect():
                                 for req in requests:
                                     msg =  msg + "\n" + req[1]
                                 sc.rtm_send_message(message[u'channel'], msg)
+                                sc.rtm_send_message(message[u'channel'], "Consider saying this prayer for the above requests:\n" + canonizationPrayer)
                             else:
                                 sc.rtm_send_message(message[u'channel'], requestMessage)
                             conn.close()
